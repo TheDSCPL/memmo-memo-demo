@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import People from './People';
 
 function App() {
@@ -31,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App);

@@ -1,10 +1,11 @@
+import { memo } from 'react';
 import Person, { PersonProps } from './Person';
 
 interface PeopleProps {
-    people: Record<string, PersonProps['data']>;
+    people: Readonly<Record<string, PersonProps['data']>>;
 }
 
-export default function People({people}: PeopleProps) {
+export default memo(function People({people}: PeopleProps) {
     console.log(`rendering People`)
     return (
         <>
@@ -13,4 +14,4 @@ export default function People({people}: PeopleProps) {
             ))}
         </>
     )
-}
+})

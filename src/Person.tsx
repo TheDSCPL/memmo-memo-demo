@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import Age from "./Age"
 import Name from "./Name"
 
 export interface PersonProps {
     id: string;
-    data: {
+    data: Readonly<{
         name: string;
         initialAge: number;
-    }
+    }>
 }
 
-export default function Person({id, data: {name, initialAge}}: PersonProps) {
+export default memo(function Person({id, data: {name, initialAge}}: PersonProps) {
     console.log(`rendering Person with id="${id}"`)
 
     const [goals, setGoals] = useState(0);
@@ -25,4 +25,4 @@ export default function Person({id, data: {name, initialAge}}: PersonProps) {
             <hr/>
         </div>
     )
-}
+})
