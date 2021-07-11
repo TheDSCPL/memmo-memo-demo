@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState } from 'react';
+import React, { memo, useCallback, useMemo, useState } from 'react';
 import People from './People';
 
 /* const peopleList = {
@@ -21,9 +21,9 @@ function App() {
 
   const [teamName, setTeamName] = useState('Goal diggers')
 
-  const onTeamNameClick = () => {
-    setTeamName(prompt('New team name') || teamName)
-  }
+  const onTeamNameClick = useCallback(() => {
+    setTeamName(teamName => prompt('New team name') || teamName)
+  }, [])
 
   const peopleList = useMemo(() => ({
     "luis-cirne": {

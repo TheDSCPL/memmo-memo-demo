@@ -18,13 +18,14 @@ export default memo(function Person({id, data: {name, initialAge}}: PersonProps)
 
     //const incrementAge = useMemo(() => () => {setAge(a => a+1)}, [])
     const incrementAge = useCallback(() => {setAge(a => a+1)}, [])
+    const incrementGoals = useCallback(() => {setGoals(d => d+1)}, [])
 
     return (
         <div>
             <p>ID: {id}</p>
             <Name name={name}/>
             <Age age={age} increment={incrementAge}/>
-            <p onClick={() => {setGoals(d => d+1)}}>Goals: {goals}</p>
+            <p onClick={incrementGoals}>Goals: {goals}</p>
             <hr/>
         </div>
     )
